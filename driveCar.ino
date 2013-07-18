@@ -28,7 +28,7 @@ void loop()
     if(needSetUpA == 0){
         digitalWrite(12, HIGH); //Establishes forward direction of Channel A
         digitalWrite(9, LOW);   //Disengage the Brake for Channel A
-        digitalWrite(13, HIGH);  //Establishes backward direction of Channel B
+        digitalWrite(13, HIGH);  //Establishes forward direction of Channel B
         digitalWrite(8, LOW);   //Disengage the Brake for Channel B
         needSetUpA = 1;
         needSetUpB = 0;
@@ -40,15 +40,15 @@ void loop()
         if (maxSpeed > 255){
           maxSpeed = 255;
         }
-        analogWrite(3, maxSpeed);   //Spins the motor on Channel A at full speed
-        analogWrite(11, maxSpeed);    //Spins the motor on Channel B at half speed 
+        analogWrite(3, maxSpeed); 
+        analogWrite(11, maxSpeed);    
         nunchuk.update();
     }
   }
   
   while( nunchuk.analogY < 120){
     if(needSetUpB == 0){
-        digitalWrite(12, LOW); //Establishes forward direction of Channel A
+        digitalWrite(12, LOW); //Establishes backward direction of Channel A
         digitalWrite(9, LOW);   //Disengage the Brake for Channel A      
         digitalWrite(13, LOW);  //Establishes backward direction of Channel B
         digitalWrite(8, LOW);   //Disengage the Brake for Channel B
@@ -62,8 +62,8 @@ void loop()
       if (maxSpeed > 255){
         maxSpeed = 255;  
       }
-      analogWrite(3, maxSpeed);   //Spins the motor on Channel A at full speed
-      analogWrite(11, maxSpeed);    //Spins the motor on Channel B at half speed
+      analogWrite(3, maxSpeed);  
+      analogWrite(11, maxSpeed);    
       nunchuk.update();
     }
   }
@@ -84,17 +84,17 @@ void loop()
         if (maxSpeed > 255){
           maxSpeed = 255;
         }
-        analogWrite(3, maxSpeed);   //Spins the motor on Channel A at full speed
-        analogWrite(11, maxSpeed);    //Spins the motor on Channel B at half speed 
+        analogWrite(3, maxSpeed); 
+        analogWrite(11, maxSpeed);   
         nunchuk.update();
     }
   }
   
   while( nunchuk.analogX < 120){
     if(needSetUpD == 0){
-        digitalWrite(12, LOW); //Establishes forward direction of Channel A
+        digitalWrite(12, LOW); //Establishes backward direction of Channel A
         digitalWrite(9, LOW);   //Disengage the Brake for Channel A      
-        digitalWrite(13, HIGH);  //Establishes backward direction of Channel B
+        digitalWrite(13, HIGH);  //Establishes forward direction of Channel B
         digitalWrite(8, LOW);   //Disengage the Brake for Channel B
         needSetUpB = 0;
         needSetUpA = 0;
@@ -106,8 +106,8 @@ void loop()
       if (maxSpeed > 255){
         maxSpeed = 255;  
       }
-      analogWrite(3, maxSpeed);   //Spins the motor on Channel A at full speed
-      analogWrite(11, maxSpeed);    //Spins the motor on Channel B at half speed
+      analogWrite(3, maxSpeed); 
+      analogWrite(11, maxSpeed);  
       nunchuk.update();
     }
   }
